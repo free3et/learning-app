@@ -1,15 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
-import { SearchBlock } from "../components/SearchBlock/SearchBlock";
 import { LessonPage } from "../components/LessonPage/LessonPage";
-import App from "../../public/App";
 import { LessonsList } from "../components/LessonsList.jsx/LessonsList";
-//import MyError from "../error/error";
+import { Layout } from "../App";
+import { ErrorComponent } from "../components/ErrorComponent/ErrorComponent";
 
 export const router = createBrowserRouter([
   {
-    path: "/",
-    element: <App />,
-    //errorElement: <MyError />,
+    path: "/genesis-learning-app/",
+    element: <Layout />,
+    errorElement: <ErrorComponent />,
     children: [
       {
         element: <LessonsList />,
@@ -17,8 +16,7 @@ export const router = createBrowserRouter([
       },
       {
         element: <LessonPage />,
-        path: "/:id",
-        //loader: fetchLesson,
+        path: "/genesis-learning-app/:id",
       },
     ],
   },
